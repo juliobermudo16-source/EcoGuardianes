@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Escudo del guardian con hoja y lupa: identidad de EcoGuardianes -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Escudo -->
+    <path
+        android:fillColor="#FFFDF8EE"
+        android:pathData="M54,26 L78,34 L78,54 C78,68 68,78 54,84 C40,78 30,68 30,54 L30,34 Z" />
+    <path
+        android:fillColor="#FF2E9E5B"
+        android:pathData="M54,30 L74,36.7 L74,54 C74,65.6 65.7,74.3 54,79.6 C42.3,74.3 34,65.6 34,54 L34,36.7 Z" />
+
+    <!-- Hoja -->
+    <path
+        android:fillColor="#FF6FCF7F"
+        android:pathData="M54,38 C46,44 42,52 46,62 C54,64 62,58 64,48 C64,42 60,38 54,38 Z" />
+    <path
+        android:fillColor="#FF14573C"
+        android:pathData="M47,63 C50,55 55,47 62,42 L63.4,43.8 C56.8,48.6 52,56 49,64 Z" />
+
+    <!-- Lupa -->
+    <path
+        android:fillColor="#FF0F4C75"
+        android:pathData="M62,56 m-9,0 a9,9 0 1,0 18,0 a9,9 0 1,0 -18,0 Z" />
+    <path
+        android:fillColor="#FFCDE9F7"
+        android:pathData="M62,56 m-6,0 a6,6 0 1,0 12,0 a6,6 0 1,0 -12,0 Z" />
+    <path
+        android:fillColor="#FF0F4C75"
+        android:pathData="M67.5,61.5 L74,68 L71,71 L64.5,64.5 Z" />
+</vector>

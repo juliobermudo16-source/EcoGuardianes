@@ -1,0 +1,73 @@
+name: Compilar APK de EcoGuardianes
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Pruebas, lint y APK de depuración
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener el código
+        uses: actions/checkout@v4
+
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Preparar el SDK de Android
+        uses: android-actions/setup-android@v3
+
+      - name: Instalar la plataforma y las build-tools necesarias
+        run: |
+          sdkmanager --install "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Configurar Gradle con caché
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Dar permisos al Gradle Wrapper
+        run: chmod +x ./gradlew
+
+      - name: Ejecutar las pruebas unitarias
+        run: ./gradlew testDebugUnitTest --stacktrace
+
+      - name: Ejecutar el análisis de lint
+        run: ./gradlew lintDebug --stacktrace
+
+      - name: Compilar el APK de depuración
+        run: ./gradlew assembleDebug --stacktrace
+
+      - name: Calcular el SHA-256 del APK
+        run: |
+          sha256sum app/build/outputs/apk/debug/app-debug.apk | tee app/build/outputs/apk/debug/app-debug.apk.sha256
+
+      - name: Publicar el APK como artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: EcoGuardianes-apk-debug
+          path: |
+            app/build/outputs/apk/debug/app-debug.apk
+            app/build/outputs/apk/debug/app-debug.apk.sha256
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publicar los informes de pruebas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: EcoGuardianes-informes
+          path: |
+            app/build/reports/tests/testDebugUnitTest
+            app/build/reports/lint-results-debug.html
+            app/build/test-results/testDebugUnitTest
+          if-no-files-found: warn
+          retention-days: 30

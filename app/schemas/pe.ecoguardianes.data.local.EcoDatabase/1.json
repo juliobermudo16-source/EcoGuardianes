@@ -1,0 +1,553 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "0a367d4bf90f6b8be2bfc11f032454fa",
+    "entities": [
+      {
+        "tableName": "perfil",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `alias` TEXT NOT NULL, `avatarId` TEXT NOT NULL, `xp` INTEGER NOT NULL, `onboardingCompletado` INTEGER NOT NULL, `sonidoActivado` INTEGER NOT NULL, `hapticaActivada` INTEGER NOT NULL, `textoGrande` INTEGER NOT NULL, `pistasAutomaticas` INTEGER NOT NULL, `creadoEn` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "alias",
+            "columnName": "alias",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "avatarId",
+            "columnName": "avatarId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "xp",
+            "columnName": "xp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "onboardingCompletado",
+            "columnName": "onboardingCompletado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sonidoActivado",
+            "columnName": "sonidoActivado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hapticaActivada",
+            "columnName": "hapticaActivada",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "textoGrande",
+            "columnName": "textoGrande",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pistasAutomaticas",
+            "columnName": "pistasAutomaticas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "creadoEn",
+            "columnName": "creadoEn",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "progreso_zona",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`zonaId` TEXT NOT NULL, `estrellas` INTEGER NOT NULL, `mejorPuntaje` INTEGER NOT NULL, `vecesCompletada` INTEGER NOT NULL, `iniciada` INTEGER NOT NULL, `actualizadoEn` INTEGER NOT NULL, PRIMARY KEY(`zonaId`))",
+        "fields": [
+          {
+            "fieldPath": "zonaId",
+            "columnName": "zonaId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estrellas",
+            "columnName": "estrellas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mejorPuntaje",
+            "columnName": "mejorPuntaje",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vecesCompletada",
+            "columnName": "vecesCompletada",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "iniciada",
+            "columnName": "iniciada",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "actualizadoEn",
+            "columnName": "actualizadoEn",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "zonaId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "auditoria",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `misionId` TEXT NOT NULL, `zonaId` TEXT NOT NULL, `iniciadaEn` INTEGER NOT NULL, `finalizadaEn` INTEGER NOT NULL, `totalSituaciones` INTEGER NOT NULL, `problemasTotales` INTEGER NOT NULL, `detectadosCorrectos` INTEGER NOT NULL, `falsosPositivos` INTEGER NOT NULL, `omitidos` INTEGER NOT NULL, `conformes` INTEGER NOT NULL, `observaciones` INTEGER NOT NULL, `noConformidades` INTEGER NOT NULL, `clasificacionesCorrectas` INTEGER NOT NULL, `accionesCorrectas` INTEGER NOT NULL, `accionesPropuestas` INTEGER NOT NULL, `puntaje` INTEGER NOT NULL, `estrellas` INTEGER NOT NULL, `xpGanado` INTEGER NOT NULL, `aprobada` INTEGER NOT NULL, `deteccionPerfecta` INTEGER NOT NULL, `completada` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "misionId",
+            "columnName": "misionId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "zonaId",
+            "columnName": "zonaId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "iniciadaEn",
+            "columnName": "iniciadaEn",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "finalizadaEn",
+            "columnName": "finalizadaEn",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalSituaciones",
+            "columnName": "totalSituaciones",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "problemasTotales",
+            "columnName": "problemasTotales",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "detectadosCorrectos",
+            "columnName": "detectadosCorrectos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "falsosPositivos",
+            "columnName": "falsosPositivos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "omitidos",
+            "columnName": "omitidos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "conformes",
+            "columnName": "conformes",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "observaciones",
+            "columnName": "observaciones",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "noConformidades",
+            "columnName": "noConformidades",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clasificacionesCorrectas",
+            "columnName": "clasificacionesCorrectas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accionesCorrectas",
+            "columnName": "accionesCorrectas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accionesPropuestas",
+            "columnName": "accionesPropuestas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "puntaje",
+            "columnName": "puntaje",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estrellas",
+            "columnName": "estrellas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "xpGanado",
+            "columnName": "xpGanado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "aprobada",
+            "columnName": "aprobada",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deteccionPerfecta",
+            "columnName": "deteccionPerfecta",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "completada",
+            "columnName": "completada",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_auditoria_zonaId",
+            "unique": false,
+            "columnNames": [
+              "zonaId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_auditoria_zonaId` ON `${TABLE_NAME}` (`zonaId`)"
+          },
+          {
+            "name": "index_auditoria_misionId",
+            "unique": false,
+            "columnNames": [
+              "misionId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_auditoria_misionId` ON `${TABLE_NAME}` (`misionId`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "hallazgo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `auditoriaId` INTEGER NOT NULL, `situacionId` TEXT NOT NULL, `zonaId` TEXT NOT NULL, `nombre` TEXT NOT NULL, `categoria` TEXT NOT NULL, `gravedad` TEXT NOT NULL, `categoriaElegida` TEXT, `gravedadElegida` TEXT, `descripcion` TEXT NOT NULL, `reglaId` TEXT NOT NULL, `accionId` TEXT, `accionCorrecta` INTEGER NOT NULL, `retoSuperado` INTEGER NOT NULL, `intentos` INTEGER NOT NULL, `valido` INTEGER NOT NULL, `estado` TEXT NOT NULL, `registradoEn` INTEGER NOT NULL, FOREIGN KEY(`auditoriaId`) REFERENCES `auditoria`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "auditoriaId",
+            "columnName": "auditoriaId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "situacionId",
+            "columnName": "situacionId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "zonaId",
+            "columnName": "zonaId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "categoria",
+            "columnName": "categoria",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gravedad",
+            "columnName": "gravedad",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "categoriaElegida",
+            "columnName": "categoriaElegida",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "gravedadElegida",
+            "columnName": "gravedadElegida",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "descripcion",
+            "columnName": "descripcion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reglaId",
+            "columnName": "reglaId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accionId",
+            "columnName": "accionId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "accionCorrecta",
+            "columnName": "accionCorrecta",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "retoSuperado",
+            "columnName": "retoSuperado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "intentos",
+            "columnName": "intentos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "valido",
+            "columnName": "valido",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "registradoEn",
+            "columnName": "registradoEn",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_hallazgo_auditoriaId",
+            "unique": false,
+            "columnNames": [
+              "auditoriaId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_hallazgo_auditoriaId` ON `${TABLE_NAME}` (`auditoriaId`)"
+          },
+          {
+            "name": "index_hallazgo_categoria",
+            "unique": false,
+            "columnNames": [
+              "categoria"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_hallazgo_categoria` ON `${TABLE_NAME}` (`categoria`)"
+          },
+          {
+            "name": "index_hallazgo_situacionId",
+            "unique": false,
+            "columnNames": [
+              "situacionId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_hallazgo_situacionId` ON `${TABLE_NAME}` (`situacionId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "auditoria",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "auditoriaId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "insignia",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `desbloqueada` INTEGER NOT NULL, `desbloqueadaEn` INTEGER, `progresoActual` INTEGER NOT NULL, `meta` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "desbloqueada",
+            "columnName": "desbloqueada",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "desbloqueadaEn",
+            "columnName": "desbloqueadaEn",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "progresoActual",
+            "columnName": "progresoActual",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "meta",
+            "columnName": "meta",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "coleccionable",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `desbloqueado` INTEGER NOT NULL, `desbloqueadoEn` INTEGER, `progresoActual` INTEGER NOT NULL, `meta` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "desbloqueado",
+            "columnName": "desbloqueado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "desbloqueadoEn",
+            "columnName": "desbloqueadoEn",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "progresoActual",
+            "columnName": "progresoActual",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "meta",
+            "columnName": "meta",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0a367d4bf90f6b8be2bfc11f032454fa')"
+    ]
+  }
+}
