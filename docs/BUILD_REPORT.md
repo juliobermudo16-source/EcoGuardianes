@@ -144,9 +144,38 @@ codificación UTF-8.
 y el Gradle Wrapper: pruebas → lint → APK, calcula el SHA-256 y publica el APK y
 los informes como *artifacts*.
 
-**El flujo no se ha ejecutado todavía**: el repositorio aún no existe en GitHub y
-esta entrega no realiza `git push` ni utiliza credenciales. La primera ejecución
-la disparará la persona usuaria al subir el proyecto.
+**Ejecutado y verificado.** Primera ejecución disparada por el `push` inicial:
+
+| Dato | Valor |
+|---|---|
+| Repositorio | `juliobermudo16-source/EcoGuardianes` |
+| Ejecución | `33228100318`, 2026-08-29 02:06 UTC |
+| Resultado | **Correcto** — los 10 pasos en verde |
+| Duración total | 4 min 43 s |
+| Runner | `ubuntu-latest`, JDK 17 Temurin |
+
+| Paso en CI | Resultado | Duración |
+|---|---|---|
+| `./gradlew testDebugUnitTest` | BUILD SUCCESSFUL | 2 min 22 s |
+| `./gradlew lintDebug` | BUILD SUCCESSFUL | 42 s |
+| `./gradlew assembleDebug` | BUILD SUCCESSFUL | 41 s |
+
+APK producido en CI:
+
+```
+2f6440fbbecb1c591db6f22c14ebf71b13c95c18e0df713db26f996faa851d9d  app-debug.apk
+```
+
+*Artifacts* publicados: `EcoGuardianes-apk-debug` (APK y su SHA-256) y
+`EcoGuardianes-informes` (informes de pruebas y de lint).
+
+El SHA-256 del APK de CI no coincide con el local porque el APK de depuración se
+firma con la clave de depuración de cada equipo, que es distinta en cada máquina.
+El código compilado es el mismo.
+
+La ejecución registra dos avisos informativos de GitHub, ajenos al proyecto:
+`actions/setup-java@v4` está en desuso y varias acciones apuntan a Node.js 20.
+No afectan al resultado.
 
 ## 9. Incidencias resueltas
 
